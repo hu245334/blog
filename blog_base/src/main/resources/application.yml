@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.116.193.176:3306/blog
+    username: root
+    password: 123456
+  data:
+    redis:
+      host: 47.116.193.176
+      port: 6379
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true #开启驼峰命名
+
+
+ENDPOINT: https:\\oss-cn-nanjing.aliyuncs.com
+ACCESS_KEY_ID: LTAI5tPmGeL18WW3gsUYqavQ
+ACCESS_KEY_SECRET: zXxWGOa46PStCKVYaLemfSCCDW5YcU
+BUCKET_NAME: becomewho
