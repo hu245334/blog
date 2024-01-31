@@ -32,8 +32,8 @@ export const userInfoUpdateService = (userInfoData)=>{
 }
 
 //修改头像
-// export const userAvatarUpdateService = (avatarUrl)=>{
-//     const params = new URLSearchParams();
-//     params.append('avatarUrl',avatarUrl)
-//     return request.patch('/user/updateAvatar',params)
-// }
+export const userAvatarUpdateService = (avatarUrl)=>{
+    const params = new URLSearchParams();
+    params.append('avatarUrl',avatarUrl)
+    return request.patch('/user/updateAvatar',params)
+}

@@ -19,7 +19,7 @@ const state = ref('')
 const articles = ref([])
 
 //分页条数据模型
-const pageNum = ref(1)//当前页
+const pageNo = ref(1)//当前页
 const total = ref(20)//总条数
 const pageSize = ref(3)//每页条数
 
@@ -30,7 +30,7 @@ const onSizeChange = (size) => {
 }
 //当前页码发生变化，调用此函数
 const onCurrentChange = (num) => {
-  pageNum.value = num
+  pageNo.value = num
   articleList()
 }
 
@@ -47,7 +47,7 @@ const articleCategoryList = async () => {
 //获取文章列表数据
 const articleList = async () => {
   let params = {
-    pageNum: pageNum.value,
+    pageNo: pageNo.value,
     pageSize: pageSize.value,
     categoryId: categoryId.value ? categoryId.value : null,
     state: state.value ? state.value : null
@@ -56,7 +56,7 @@ const articleList = async () => {
 
   //渲染视图
   total.value = result.data.total;
-  articles.value = result.data.items;
+  articles.value = result.data.data;
 
   //处理数据,给数据模型扩展一个属性categoryName,分类名称
   for (let i = 0; i < articles.value.length; i++) {
@@ -165,7 +165,7 @@ const addArticle = async (clickState) => {
       </template>
     </el-table>
     <!-- 分页条 -->
-    <el-pagination v-model:current-page="pageNum" v-model:page-size="pageSize" :page-sizes="[3, 5, 10, 15]"
+    <el-pagination v-model:current-page="pageNo" v-model:page-size="pageSize" :page-sizes="[3, 5, 10, 15]"
                    layout="jumper, total, sizes, prev, pager, next" background :total="total"
                    @size-change="onSizeChange"
                    @current-change="onCurrentChange" style="margin-top: 20px; justify-content: flex-end"/>
