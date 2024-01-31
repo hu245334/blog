@@ -49,7 +49,7 @@ public class AliOSSUtil {
                     (BUCKET_NAME, objectName, inputStream);
 
             PutObjectResult result = ossClient.putObject(putObjectRequest);
-            url = "https://" + BUCKET_NAME + "." + ENDPOINT.substring(7) + "/" + objectName;
+            url = "https://" + BUCKET_NAME + "." + ENDPOINT + "/" + objectName;
         } catch (OSSException oe) {
             System.out.println("Caught an OSSException, which means your request made it to OSS, "
                     + "but was rejected with an error response for some reason.");
